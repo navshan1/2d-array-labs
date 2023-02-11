@@ -1,0 +1,51 @@
+import java.util.Scanner;
+public class MyProgram
+{
+    public static void main(String[] args)
+    {
+        int[][] mat = {
+        {1,2,3,4,5,6},
+        {1,2,3,4,5,6},
+        {1,2,3,4,5,6},
+        {1,2,3,4,5,6},
+        {1,2,3,4,5,6},
+        };
+        
+       System.out.print(sum(0,0,mat));
+     
+    }
+    public static int sum(int row, int column, int[][] mat){
+        
+        int sum=0;
+        
+        if(row-1>0&& column-1>0){
+               sum+= mat[row-1][column-1];
+        }
+        if(row-1>1){
+               sum+= mat[row-1][column];
+        }
+        if(row-1>0&&column+1<mat[row].length)
+               sum+= mat[row-1][column+1];
+        if( column-1>0){
+               sum+= mat[row][column-1];
+        }
+        
+               sum+= mat[row][column];
+        if(column+1<mat[row].length){
+               sum+= mat[row][column+1];
+        }
+        if(row+1<mat.length&&column-1>0){
+               sum+= mat[row+1][column-1];
+        }
+        if(row+1<mat.length){
+               sum+= mat[row+1][column];
+        }
+        if(row+1<mat.length&&column+1<mat[row].length)
+               sum+= mat[row+1][column+1];
+               
+             
+        
+        return sum;
+        
+    }    
+}
